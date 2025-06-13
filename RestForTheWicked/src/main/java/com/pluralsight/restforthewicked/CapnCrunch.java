@@ -12,9 +12,9 @@ public class CapnCrunch {
         this.name = name;
     }
 
-    public CapnCrunch() {
-    }
+    public CapnCrunch() {}
 
+//region getters/setters
     public String getTitle() {
         return title;
     }
@@ -30,6 +30,7 @@ public class CapnCrunch {
     public void setName(String name) {
         this.name = name;
     }
+//endregion
 
     @Override
     public String toString() {

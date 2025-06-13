@@ -1,0 +1,29 @@
+package com.pluralsight.restforthewicked;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController  // ← A type of @Component, this also tells Spring to treat this class as a bean
+public class CrunchController {
+    CapnCrunch capnCrunch;
+
+    @Autowired
+    public void setCapnCrunch(CapnCrunch capnCrunch) {
+        this.capnCrunch = capnCrunch;
+    }
+
+    @GetMapping("/greeting")  //  ← Handle get requests at http://localhost:8080 + /greeting (http://localhost:8080/greeting)
+    public String home() {
+        return "Cerealize me, Cap'n!!!";
+    }
+
+    @GetMapping("/capn")
+    public CapnCrunch capn() throws JsonProcessingException {
+        return this.capnCrunch;
+    }
+
+
+}

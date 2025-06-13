@@ -18,23 +18,25 @@ public class Cerealizer {
         this.capn = capn;
     }
 
-//    @EventListener(ApplicationReadyEvent.class)
+    @EventListener(ApplicationReadyEvent.class)
     public void demo() throws JsonProcessingException {
-        ObjectMapper mapper = new ObjectMapper();
+        ObjectMapper objectMapper = new ObjectMapper();
 
         System.out.println("\n\nOriginal object: " + capn);
 
-        String json = mapper.writeValueAsString(capn);
+        String json = objectMapper.writeValueAsString(capn);
 
         System.out.println("\nSerialization (Cerealization)... object now can be represented as a SERIES of characters");
-        Cerealizer.characterPrint(json);
+        characterPrint(json);
 
-        CapnCrunch deserializedCapn = mapper.readValue(json, CapnCrunch.class);
-        System.out.println("\n\nDeserialized object: " + deserializedCapn);
-
+        CapnCrunch deserializedCapn = objectMapper.readValue(json, CapnCrunch.class);
+        System.out.println("\nDeserialized object: " + deserializedCapn);
     }
 
-
+    /**
+     * Slowly print the characters in series to drive home what we mean by serialized.
+     * @param json The string to print.
+     */
     static void characterPrint(String json) {
         try {
             for (char c : json.toCharArray()) {
