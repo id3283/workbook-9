@@ -1,0 +1,54 @@
+package com.pluralsight.restforthewicked;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
+import org.springframework.stereotype.Component;
+
+import java.util.concurrent.TimeUnit;
+
+@Component
+public class Cerealizer {
+    CapnCrunch capn;
+
+    @Autowired
+    public Cerealizer(CapnCrunch capn) {
+        this.capn = capn;
+    }
+
+//    @EventListener(ApplicationReadyEvent.class)
+    public void demo() throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+
+        System.out.println("\n\nOriginal object: " + capn);
+
+        String json = mapper.writeValueAsString(capn);
+
+        System.out.println("\nSerialization (Cerealization)... object now can be represented as a SERIES of characters");
+        Cerealizer.characterPrint(json);
+
+        CapnCrunch deserializedCapn = mapper.readValue(json, CapnCrunch.class);
+        System.out.println("\n\nDeserialized object: " + deserializedCapn);
+
+    }
+
+
+    static void characterPrint(String json) {
+        try {
+            for (char c : json.toCharArray()) {
+                if (c != '\n') {
+                    System.out.print(c);
+                    System.out.flush();
+                    TimeUnit.MILLISECONDS.sleep(200);
+                }
+            }
+            System.out.println();
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.err.println("Printing interrupted: " + e.getMessage());
+        }
+    }
+}
+

@@ -2,7 +2,7 @@ package com.pluralsight.restforthewicked;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component  // ← Tells Spring to treat this class as a bean
 public class CapnCrunch {
     String title = "Capn";
     String name = "Crunch";
