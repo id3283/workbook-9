@@ -18,13 +18,13 @@ public class Cerealizer {
         this.capn = capn;
     }
 
-    @EventListener(ApplicationReadyEvent.class)
+//    @EventListener(ApplicationReadyEvent.class)
     public void demo() throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
 
-        System.out.println("\n\nOriginal object: " + capn);
+        System.out.println("\n\nOriginal object: " + this.capn);
 
-        String json = objectMapper.writeValueAsString(capn);
+        String json = objectMapper.writeValueAsString(this.capn);
 
         System.out.println("\nSerialization (Cerealization)... object now can be represented as a SERIES of characters");
         characterPrint(json);

@@ -15,14 +15,20 @@ public class CrunchController {
         this.capnCrunch = capnCrunch;
     }
 
-    @GetMapping("/greeting")  //  ← Handle get requests at http://localhost:8080 + /greeting (http://localhost:8080/greeting)
+//    @GetMapping("/greeting")  //  ← Handle get requests at http://localhost:8080 + /greeting (http://localhost:8080/greeting)
     public String home() {
         return "Cerealize me, Cap'n!!!";
     }
 
-    @GetMapping("/capn")
-    public CapnCrunch capn() throws JsonProcessingException {
-        return this.capnCrunch;
+    // HTTP CRUD
+    // Create - POST
+    // Read - GET
+    // Update - PUT
+    // Delete - DELETE
+
+    @GetMapping("/michael")
+    public String capn() throws JsonProcessingException {
+        return "Mike";
     }
 
 
