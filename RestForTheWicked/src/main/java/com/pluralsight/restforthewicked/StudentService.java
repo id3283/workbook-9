@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class StudentService {
 
-    StudentDao dao;
+    SimpleStudentDao dao;
 
     @Autowired
-    public StudentService(StudentDao dao) {
+    public StudentService(SimpleStudentDao dao) {
         this.dao = dao;
     }
 

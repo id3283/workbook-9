@@ -1,4 +1,4 @@
-package com.pluralsight.restforthewicked;
+package com.pluralsight.restforthewicked.cerealize;
 
 import org.springframework.stereotype.Component;
 

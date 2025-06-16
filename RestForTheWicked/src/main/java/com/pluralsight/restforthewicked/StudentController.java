@@ -9,10 +9,10 @@ import java.util.List;
 @RestController
 public class StudentController {
 
-    StudentDao studentDao;
+    SimpleStudentDao studentDao;
 
     @Autowired
-    public StudentController(StudentDao studentDao) {
+    public StudentController(SimpleStudentDao studentDao) {
         this.studentDao = studentDao;
     }
 

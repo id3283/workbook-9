@@ -7,20 +7,22 @@ import java.util.List;
 
 
 @Component
-public class StudentDao {
+public class SimpleStudentDao implements StudentDaoInterface {
     List<Student> fakeDatabase = new ArrayList<>();
 
-    public StudentDao() {
+    public SimpleStudentDao() {
         this.fakeDatabase.add(new Student("Mike"));
         this.fakeDatabase.add(new Student("Izel"));
         this.fakeDatabase.add(new Student("Mahlet"));
         this.fakeDatabase.add(new Student("Victoria"));
     }
 
+    @Override
     public List<Student> getStudents() {
         return this.fakeDatabase;
     }
 
+    @Override
     public void addStudent(Student student) {
         this.fakeDatabase.add(student);
     }
