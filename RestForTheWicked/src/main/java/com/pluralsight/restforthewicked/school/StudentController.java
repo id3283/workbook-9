@@ -1,7 +1,5 @@
-package com.pluralsight.restforthewicked.school.todo;
+package com.pluralsight.restforthewicked.school;
 
-import com.pluralsight.restforthewicked.school.SimpleStudentDao;
-import com.pluralsight.restforthewicked.school.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,5 +21,7 @@ public class StudentController {
 
         return this.studentDao.getStudents();
     }
+    
+    
 
 }
