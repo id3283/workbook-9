@@ -8,8 +8,12 @@ import org.springframework.stereotype.Component;
 public class EmployeeDao {
     BasicDataSource dataSource = new BasicDataSource();
 
-    public EmployeeDao( String url, String username) {
+    public EmployeeDao(
+            String url,
+            String username) {
         dataSource.setUrl(url);
         dataSource.setUsername(username);
     }
+
+
 }
